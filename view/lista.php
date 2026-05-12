@@ -27,7 +27,8 @@ $produtos = $controller->listar();
 
         <h2>Produtos cadastrados</h2>
 
-        <?php if(count($produtos) > 0): ?>
+        <?php if(count($produtos) > 0):  // verifica se há registros para exibir ?>
+            
 
             <table>
 
@@ -51,11 +52,11 @@ $produtos = $controller->listar();
 
                         <tr>
 
-                            <td><?= $produto->getId() ?></td>
-                            <td><?= $produto->getNome() ?></td>
-                            <td><?= $produto->getTipo() ?></td>
-                            <td><?= $produto->getPesoCaixa() ?></td>
-                            <td><?= $produto->getDescontoRotulo() ?></td>
+                            <td><?= $produto->getId() ?></td>  <!-- ID gerado pelo banco -->
+                            <td><?= $produto->getNome() ?></td><!-- nome do time -->
+                            <td><?= $produto->getTipo() ?></td><!-- ano de fundação -->
+                            <td><?= $produto->getPesoCaixa() ?></td><!-- nome do estádio -->
+                            <td><?= $produto->getDescontoRotulo() ?></td><!-- cor principal -->
 
                         </tr>
 
@@ -71,9 +72,8 @@ $produtos = $controller->listar();
 
         <?php endif; ?>
 
-        <a class="voltar" href="cadastra.php">
-            Cadastrar novo produto
-        </a>
+        <a class="voltar" href="cadastra.php">Cadastrar novo produto</a>
+        <a class="voltar" href="../index.php">Voltar</a>
 
     </div>
 

@@ -31,11 +31,11 @@
                 Listar Produtos
             </a>
 
-            <a href="#">
+            <a href="view/cadastra_lote.php">
                 Cadastrar Lote
             </a>
 
-            <a href="#">
+            <a href="view/lista_lote.php">
                 Listar Lotes
             </a>
 

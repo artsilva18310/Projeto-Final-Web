@@ -8,7 +8,8 @@ body{
 
     font-family: Arial, Helvetica, sans-serif;
 
-    background: #f4f6f9;
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                url("../../doce-de-leite.94313103.png") center/cover no-repeat;
 
     min-height: 100vh;
 

@@ -54,9 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
 
-        <a class="voltar" href="lista.php">
-            Ver produtos cadastrados
-        </a>
+        <a class="voltar" href="lista.php">Ver produtos cadastrados</a>
+        
+        <a class="voltar" href="../index.php">Voltar</a>
 
     </div>
 
