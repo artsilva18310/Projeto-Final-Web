@@ -1,7 +1,7 @@
 <?php
-
+// Carrega o Controller para usar na View
 require_once __DIR__ . '/../controller/LoteController.php';
-
+// Instancia o Controller e chama o método para listar os lotes
 $controller = new LoteController();
 $lotes = $controller->listar();
 
@@ -24,7 +24,7 @@ $lotes = $controller->listar();
 
         <h2>Lotes cadastrados</h2>
 
-        <?php if (count($lotes) > 0): ?>
+        <?php if (count($lotes) > 0): // Exibe os lotes disponíveis ?>
 
             <table>
                 <thead>
@@ -37,7 +37,7 @@ $lotes = $controller->listar();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($lotes as $lote): ?>
+                    <?php foreach ($lotes as $lote): // Exibe os lotes disponíveis ?>
                         <tr>
                             <td><?= $lote->getId() ?></td>
                             <td><?= $lote->getNumeroLote() ?></td>

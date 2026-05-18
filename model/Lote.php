@@ -9,6 +9,7 @@ class Lote
     private $pesoLiquido;  // peso líquido do lote
     private $idProduto;    // produto associado ao lote
 
+    // Construtor: recebe os dados para criar um objeto Lote
     public function __construct($numeroLote, $pesoBruto, $pesoLiquido, $idProduto, $id = null)
     {
         $this->numeroLote  = $numeroLote;  // atribui nome ao objeto

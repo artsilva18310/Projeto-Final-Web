@@ -73,6 +73,7 @@ $produtos = $controller->listar();
         <?php endif; ?>
 
         <a class="voltar" href="cadastra.php">Cadastrar novo produto</a>
+        
         <a class="voltar" href="../index.php">Voltar</a>
 
     </div>

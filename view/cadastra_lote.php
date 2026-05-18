@@ -1,11 +1,11 @@
 <?php
-
+// Inclui os arquivos necessários
 require_once __DIR__ . '/../controller/LoteController.php';
 require_once __DIR__ . '/../controller/ProdutoController.php';
-
+// Instancia o ProdutoController para obter a lista de produtos
 $produtoController = new ProdutoController();
 $produtos = $produtoController->listar();
-
+// Verifica se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new LoteController();
     $controller->salvar();
@@ -43,13 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Produto</label>
             <select name="id_produto" required>
+               
+            // Exibe os produtos disponíveis para seleção
                 <option value="">Selecione um produto</option>
                 <?php foreach ($produtos as $produto): ?>
                     <option value="<?= $produto->getId() ?>">#<?= $produto->getId() ?> - <?= htmlspecialchars($produto->getNome()) ?></option>
                 <?php endforeach; ?>
             </select>
-
-            <?php if (count($produtos) === 0): ?>
+          
+                 
+            <?php if (count($produtos) === 0): // Verifica se há produtos cadastrados para habilitar o cadastro de lotes?>
                 <p class="erro">Cadastre ao menos um produto antes de criar lotes.</p>
             <?php endif; ?>
 

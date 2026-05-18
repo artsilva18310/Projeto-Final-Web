@@ -60,7 +60,7 @@ class ProdutoDao
 
             );
         }
-
+        // Retorna o vetor de produtos para a Controller usar na View
         return $produtos;
     }
 }

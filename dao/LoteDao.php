@@ -48,7 +48,7 @@ class LoteDao
                 $row['id']
             );
         }
-
+// Retorna o vetor de lotes para a Controller usar na View
         return $lotes;
     }
 }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
 
     <title>Sistema de Inventário</title>
-
+    <!-- Link para o arquivo CSS para estilizar a página -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
