@@ -30,4 +30,39 @@ class LoteController
         header('Location: ../view/lista_lote.php');
         exit;
     }
+
+    // Retorna um lote pelo id
+    public function buscarPorId($id)
+    {
+        $dao = new LoteDao();
+        return $dao->buscarPorId($id);
+    }
+
+    // Atualiza lote a partir do POST
+    public function atualizar()
+    {
+        $lote = new Lote(
+            $_POST['numero_lote'],
+            $_POST['peso_bruto'],
+            $_POST['peso_liquido'],
+            $_POST['id_produto'],
+            $_POST['id']
+        );
+
+        $dao = new LoteDao();
+        $dao->atualizar($lote);
+
+        header('Location: ../view/lista_lote.php');
+        exit;
+    }
+
+    // Ação de deleção: lê o POST, remove do banco e redireciona
+    public function deletar()
+    {
+        $dao = new LoteDao();
+        $dao->deletar($_POST['id']);
+
+        header('Location: ../view/lista_lote.php');
+        exit;
+    }
 }

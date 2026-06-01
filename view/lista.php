@@ -41,6 +41,7 @@ $produtos = $controller->listar();
                         <th>Tipo</th>
                         <th>Peso Caixa</th>
                         <th>Desconto Rótulo</th>
+                        <th>Ações</th>
 
                     </tr>
 
@@ -57,6 +58,14 @@ $produtos = $controller->listar();
                             <td><?= $produto->getTipo() ?></td><!-- ano de fundação -->
                             <td><?= $produto->getPesoCaixa() ?></td><!-- nome do estádio -->
                             <td><?= $produto->getDescontoRotulo() ?></td><!-- cor principal -->
+                            <td>
+                                <a href="edita_produto.php?id=<?= $produto->getId() ?>">Editar</a>
+                                |
+                                <form method="POST" action="deletar_produto.php" style="display:inline" onsubmit="return confirm('Confirma exclusão do produto?')">
+                                    <input type="hidden" name="id" value="<?= $produto->getId() ?>">
+                                    <button type="submit">Excluir</button>
+                                </form>
+                            </td>
 
                         </tr>
 
@@ -72,10 +81,14 @@ $produtos = $controller->listar();
 
         <?php endif; ?>
 
-        <a class="voltar" href="cadastra.php">Cadastrar novo produto</a>
-        
-        <a class="voltar" href="../index.php">Voltar</a>
+       <div class="links-acoes">
 
+     <a href="cadastra_lote.php">➕ Cadastrar novo lote</a>
+
+    <a href="lista_produto.php">📦 Produtos</a>
+
+    <a href="../index.php">🏠 Voltar ao início</a>
+</div>
     </div>
 
 </body>

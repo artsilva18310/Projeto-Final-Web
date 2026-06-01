@@ -34,6 +34,7 @@ $lotes = $controller->listar();
                         <th>Peso bruto</th>
                         <th>Peso líquido</th>
                         <th>ID produto</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,14 @@ $lotes = $controller->listar();
                             <td><?= $lote->getPesoBruto() ?></td>
                             <td><?= $lote->getPesoLiquido() ?></td>
                             <td><?= $lote->getIdProduto() ?></td>
+                            <td>
+                                <a href="edita_lote.php?id=<?= $lote->getId() ?>">Editar</a>
+                                |
+                                <form method="POST" action="deletar_lote.php" style="display:inline" onsubmit="return confirm('Confirma exclusão do lote?')">
+                                    <input type="hidden" name="id" value="<?= $lote->getId() ?>">
+                                    <button type="submit">Excluir</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -55,9 +64,22 @@ $lotes = $controller->listar();
 
         <?php endif; ?>
 
-        <a class="voltar" href="cadastra_lote.php">Cadastrar novo lote</a>
-        <a class="voltar" href="../index.php">Voltar</a>
+        
+        <div class="links-acoes">
 
+    <a class="voltar" href="cadastra_lote.php">
+        ➕ Cadastrar novo lote
+    </a>
+
+    <a class="voltar" href="lista.php">
+        📦 Ver produtos cadastrados
+    </a>
+
+    <a class="voltar" href="../index.php">
+        🏠 Voltar ao início
+    </a>
+
+</div>
     </div>
 
 </body>

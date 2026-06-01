@@ -60,8 +60,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </form>
 
-        <a class="voltar" href="lista_lote.php">Ver lotes cadastrados</a>
-        <a class="voltar" href="../index.php">Voltar</a>
+   <div class="links-acoes">
+
+    <a class="voltar" href="lista_lote.php">
+        📋 Ver lotes cadastrados
+    </a>
+
+    <a class="voltar" href="../index.php">
+        🏠 Voltar ao início
+    </a>
+
+</div>
     </div>
 
 </body>

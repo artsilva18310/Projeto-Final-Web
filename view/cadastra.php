@@ -53,10 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </button>
 
         </form>
+<div class="links-acoes">
 
-        <a class="voltar" href="lista.php">Ver produtos cadastrados</a>
-        
-        <a class="voltar" href="../index.php">Voltar</a>
+    <a class="voltar" href="lista.php">
+        📦 Ver produtos cadastrados
+    </a>
+
+    <a class="voltar" href="../index.php">
+        🏠 Voltar ao início
+    </a>
+
+</div>
 
     </div>
 

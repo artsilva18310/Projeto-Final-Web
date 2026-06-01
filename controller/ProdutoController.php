@@ -34,4 +34,39 @@ class ProdutoController
         // redireciona para listagem após salvar
         header("Location: ../view/lista.php");
     }
+
+    // Retorna um produto pelo id
+    public function buscarPorId($id)
+    {
+        $dao = new ProdutoDao();
+        return $dao->buscarPorId($id);
+    }
+
+    // Atualiza produto a partir do POST
+    public function atualizar()
+    {
+        $produto = new Produto(
+            $_POST['nome'],
+            $_POST['tipo'],
+            $_POST['peso_caixa'],
+            $_POST['desconto_rotulo'],
+            $_POST['id']
+        );
+
+        $dao = new ProdutoDao();
+        $dao->atualizar($produto);
+
+        header("Location: ../view/lista.php");
+        exit;
+    }
+
+    // Ação de deleção: lê o POST, remove do banco e redireciona
+    public function deletar()
+    {
+        $dao = new ProdutoDao();
+        $dao->deletar($_POST['id']);
+
+        header("Location: ../view/lista.php");
+        exit;
+    }
 }

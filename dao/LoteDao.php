@@ -51,4 +51,47 @@ class LoteDao
 // Retorna o vetor de lotes para a Controller usar na View
         return $lotes;
     }
+
+    // Busca um lote por id
+    public function buscarPorId($id)
+    {
+        $sql = "SELECT * FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$row) {
+            return null;
+        }
+
+        return new Lote(
+            $row['numero_lote'],
+            $row['peso_bruto'],
+            $row['peso_liquido'],
+            $row['id_produto'],
+            $row['id']
+        );
+    }
+
+    // Atualiza um lote existente
+    public function atualizar(Lote $lote)
+    {
+        $sql = "UPDATE $this->tabela SET numero_lote = ?, peso_bruto = ?, peso_liquido = ?, id_produto = ? WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([
+            $lote->getNumeroLote(),
+            $lote->getPesoBruto(),
+            $lote->getPesoLiquido(),
+            $lote->getIdProduto(),
+            $lote->getId()
+        ]);
+    }
+
+    // Remove um lote pelo id
+    public function deletar($id)
+    {
+        $sql = "DELETE FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+    }
 }

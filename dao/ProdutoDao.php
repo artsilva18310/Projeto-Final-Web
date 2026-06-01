@@ -63,4 +63,47 @@ class ProdutoDao
         // Retorna o vetor de produtos para a Controller usar na View
         return $produtos;
     }
+
+    // Busca um produto por id
+    public function buscarPorId($id)
+    {
+        $sql = "SELECT * FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$row) {
+            return null;
+        }
+
+        return new Produto(
+            $row['nome'],
+            $row['tipo'],
+            $row['peso_caixa'],
+            $row['desconto_rotulo'],
+            $row['id']
+        );
+    }
+
+    // Atualiza um produto existente
+    public function atualizar(Produto $produto)
+    {
+        $sql = "UPDATE $this->tabela SET nome = ?, tipo = ?, peso_caixa = ?, desconto_rotulo = ? WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([
+            $produto->getNome(),
+            $produto->getTipo(),
+            $produto->getPesoCaixa(),
+            $produto->getDescontoRotulo(),
+            $produto->getId()
+        ]);
+    }
+
+    // Remove um produto pelo id
+    public function deletar($id)
+    {
+        $sql = "DELETE FROM $this->tabela WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+    }
 }

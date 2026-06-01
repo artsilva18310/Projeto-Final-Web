@@ -198,3 +198,173 @@ table td{
 
     text-decoration: underline;
 }
+
+/* Ações na tabela: links e botão de exclusão com aparência consistente */
+table td a{
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+table td a:hover{
+    text-decoration: underline;
+}
+
+table td form{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+table td form button{
+    background: transparent;
+    color: #dc3545;
+    border: none;
+    padding: 0 6px;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+table td form button:hover{
+    color: #a71d2a;
+}
+
+/* Estilo em 'pílula' para ações: Editar (azul) e Excluir (vermelho) */
+table td a:first-of-type{
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 0.12s ease, background 0.12s ease;
+}
+
+table td a:first-of-type::before{
+    content: "✎ ";
+}
+
+table td a:first-of-type:hover{
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+table td form button{
+    display: inline-block;
+    background: #dc3545;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 0.12s ease, background 0.12s ease;
+    text-decoration: none;
+}
+
+table td form button::before{
+    content: "🗑 ";
+}
+
+table td form button:hover{
+    background: #a71d2a;
+    transform: translateY(-2px);
+}
+
+/* Ajuste de espaçamento entre as ações */
+table td a:first-of-type, table td form button{ margin-right: 6px; }
+
+/* Tabelas responsivas para telas pequenas */
+@media (max-width: 700px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 15px; border-bottom: 1px solid #eee; }
+    td { text-align: right; padding-left: 50%; position: relative; }
+    td:before { position: absolute; left: 15px; width: 45%; white-space: nowrap; text-align: left; font-weight: bold; color: #444; }
+    td:nth-of-type(1):before { content: "ID"; }
+    td:nth-of-type(2):before { content: "Nome"; }
+    td:nth-of-type(3):before { content: "Tipo"; }
+    td:nth-of-type(4):before { content: "Peso Caixa"; }
+    td:nth-of-type(5):before { content: "Desconto"; }
+    td:nth-of-type(6):before { content: "Ações"; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 20px; }
+    input, button { padding: 12px; font-size: 14px; }
+}
+
+/* Links de navegação abaixo dos formulários e listas */
+./* Links de navegação abaixo dos formulários e listas */
+.links-acoes{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+.links-acoes a{
+
+    display: inline-block;
+
+    background: #007bff;
+
+    color: #fff !important;
+
+    text-decoration: none !important;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.links-acoes a:hover{
+
+    background: #0056b3;
+
+    transform: translateY(-2px);
+
+    color: white !important;
+}
+/* Melhorias da tabela */
+table{
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: white;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+tbody tr{
+
+    transition: 0.2s;
+}
+
+tbody tr:hover{
+
+    background-color: #f5f8ff;
+}
+
+table th{
+
+    letter-spacing: .5px;
+}
