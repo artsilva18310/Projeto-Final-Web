@@ -3,61 +3,44 @@
 require_once __DIR__ . '/../controller/ProdutoController.php';
 
 $controller = new ProdutoController();
-
 $produtos = $controller->listar();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <title>Produtos cadastrados</title>
-
     <link rel="stylesheet" href="../assets/css/style.css">
-
 </head>
-
 <body>
-
     <div class="container">
-
         <h2>Produtos cadastrados</h2>
 
-        <?php if(count($produtos) > 0):  // verifica se há registros para exibir ?>
-            
-
+        <?php if (count($produtos) > 0): ?>
             <table>
-
                 <thead>
-
                     <tr>
-
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Tipo</th>
                         <th>Peso Caixa</th>
                         <th>Desconto Rótulo</th>
+                        <th>CEP</th>
+                        <th>Cidade</th>
                         <th>Ações</th>
-
                     </tr>
-
                 </thead>
-
                 <tbody>
-
-                    <?php foreach($produtos as $produto): ?>
-
+                    <?php foreach ($produtos as $produto): ?>
                         <tr>
-
-                            <td><?= $produto->getId() ?></td>  <!-- ID gerado pelo banco -->
-                            <td><?= $produto->getNome() ?></td><!-- nome do time -->
-                            <td><?= $produto->getTipo() ?></td><!-- ano de fundação -->
-                            <td><?= $produto->getPesoCaixa() ?></td><!-- nome do estádio -->
-                            <td><?= $produto->getDescontoRotulo() ?></td><!-- cor principal -->
+                            <td><?= htmlspecialchars((string) $produto->getId()) ?></td>
+                            <td><?= htmlspecialchars($produto->getNome()) ?></td>
+                            <td><?= htmlspecialchars($produto->getTipo()) ?></td>
+                            <td><?= htmlspecialchars((string) $produto->getPesoCaixa()) ?></td>
+                            <td><?= htmlspecialchars((string) $produto->getDescontoRotulo()) ?></td>
+                            <td><?= htmlspecialchars($produto->getCep()) ?></td>
+                            <td><?= htmlspecialchars($produto->getCidade()) ?></td>
                             <td>
                                 <a href="edita_produto.php?id=<?= $produto->getId() ?>">Editar</a>
                                 |
@@ -66,31 +49,19 @@ $produtos = $controller->listar();
                                     <button type="submit">Excluir</button>
                                 </form>
                             </td>
-
                         </tr>
-
                     <?php endforeach; ?>
-
                 </tbody>
-
             </table>
-
         <?php else: ?>
-
             <p>Nenhum produto cadastrado.</p>
-
         <?php endif; ?>
 
-       <div class="links-acoes">
-
-     <a href="cadastra_lote.php">➕ Cadastrar novo lote</a>
-
-    <a href="lista_produto.php">📦 Produtos</a>
-
-    <a href="../index.php">🏠 Voltar ao início</a>
-</div>
+        <div class="links-acoes">
+            <a href="cadastra.php">➕ Cadastrar novo produto</a>
+            <a href="lista_lote.php">📦 Ver lotes</a>
+            <a href="../index.php">🏠 Voltar ao início</a>
+        </div>
     </div>
-
 </body>
-
 </html>

@@ -108,23 +108,20 @@ label{
     color: #444;
 }
 
-input{
-
+input,
+textarea,
+select{
     padding: 14px;
-
     border: 1px solid #ccc;
-
     border-radius: 8px;
-
     margin-bottom: 20px;
-
     font-size: 15px;
 }
 
-input:focus{
-
+input:focus,
+textarea:focus,
+select:focus{
     outline: none;
-
     border-color: #007bff;
 }
 
@@ -297,7 +294,6 @@ table td a:first-of-type, table td form button{ margin-right: 6px; }
 }
 
 /* Links de navegação abaixo dos formulários e listas */
-./* Links de navegação abaixo dos formulários e listas */
 .links-acoes{
 
     display: flex;

@@ -1,158 +1,103 @@
 # Sistema de Inventário
 
-Um sistema web para controle e gerenciamento de produtos e lotes do inventário, desenvolvido com PHP seguindo o padrão arquitetural MVC (Model-View-Controller).
+Projeto web desenvolvido com PHP seguindo o padrão MVC, com CRUDs locais para produtos e lotes e integração com API externa para CEP e MockAPI.
 
 ## 📋 Características
 
-- ✅ Cadastro de produtos com informações detalhadas
-- ✅ Controle de lotes de produtos
-- ✅ Listagem e organização de produtos e lotes
-- ✅ Cálculo de peso e desconto de rótulos
-- ✅ Interface web intuitiva
+- ✅ CRUD completo de produtos com banco local
+- ✅ CRUD completo de lotes com banco local
+- ✅ Cadastro e listagem de avisos via MockAPI
+- ✅ Busca automática de endereço pelo CEP (ViaCEP)
+- ✅ Arquivo `.env` para configuração de ambiente
+- ✅ Interface com navegação simples e responsiva
 
 ## 🏗️ Estrutura do Projeto
 
 ```
 Projeto-Final-Web/
-├── index.php                 # Página inicial do sistema
-├── Database.php              # Configuração da conexão com o banco de dados
-├── create.sql                # Script para criar tabelas do banco de dados
-│
+├── index.php
+├── Database.php
+├── create.sql
+├── .env.example
+├── .env
 ├── assets/
-│   └── css/
-│       └── style.css         # Estilos CSS do projeto
-│
-├── model/
-│   ├── Produto.php          # Modelo da entidade Produto
-│   └── Lote.php             # Modelo da entidade Lote
-│
+│   └── css/style.css
 ├── controller/
-│   ├── ProdutoController.php # Controlador de Produtos
-│   └── LoteController.php    # Controlador de Lotes
-│
+│   ├── ProdutoController.php
+│   ├── LoteController.php
+│   └── AvisoController.php
 ├── dao/
-│   ├── ProdutoDao.php       # Data Access Object para Produtos
-│   └── LoteDao.php          # Data Access Object para Lotes
-│
+│   ├── ProdutoDao.php
+│   └── LoteDao.php
+├── model/
+│   ├── Produto.php
+│   ├── Lote.php
+│   └── Aviso.php
 └── view/
-    ├── cadastra.php         # Formulário de cadastro de produtos
-    ├── lista.php            # Listagem de produtos
-    ├── cadastra_lote.php    # Formulário de cadastro de lotes
-    └── lista_lote.php       # Listagem de lotes
+    ├── cadastra.php
+    ├── lista.php
+    ├── edita_produto.php
+    ├── deletar_produto.php
+    ├── cadastra_lote.php
+    ├── lista_lote.php
+    ├── edita_lote.php
+    ├── deletar_lote.php
+    ├── cadastra_aviso.php
+    └── lista_aviso.php
 ```
 
 ## 🛠️ Requisitos
 
-- **PHP** 7.0 ou superior
-- **MySQL/PostgreSQL** para o banco de dados
-- **XAMPP** (ou equivalente) com Apache e banco de dados instalado
-- **Navegador web** moderno
+- PHP 8+
+- MySQL/MariaDB
+- XAMPP ou servidor Apache com PHP e MySQL
+- Navegador moderno
 
 ## 📦 Instalação
 
-### 1. Preparar o banco de dados
+### 1. Configure o ambiente
 
-Execute o script SQL para criar as tabelas:
+Copie o arquivo `.env.example` para `.env` e ajuste os valores.
 
-```bash
-mysql -u root < create.sql
-```
+### 2. Crie o banco de dados
 
-Ou pela interface do phpMyAdmin:
-- Acesse `http://localhost/phpmyadmin`
-- Crie um novo banco de dados
-- Importe o arquivo `create.sql`
+Importe o arquivo `create.sql` no PostgreSQL.
 
-### 2. Configurar a conexão com o banco
+### 3. Acesse a aplicação localmente
 
-Edite o arquivo `Database.php` com suas credenciais:
-
-```php
-$host = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "seu_banco_de_dados";
-```
-
-### 3. Acessar a aplicação
-
-Coloque os arquivos do projeto na pasta `htdocs` do XAMPP:
-
-```
-C:\xampp\htdocs\Projeto-Final-Web
-```
-
-Acesse no navegador:
-```
+```text
 http://localhost/Projeto-Final-Web
 ```
 
-## 🚀 Como Usar
+### 4. Configure a VM da disciplina
 
-### Página Inicial
-- Acesse `http://localhost/Projeto-Final-Web`
-- Será apresentado um menu com 4 opções principais
+Se for publicar na VM, o projeto deve ficar dentro da pasta:
 
-### Operações Disponíveis
-
-#### Produtos
-- **Cadastrar Produto**: Adicione novos produtos com nome, tipo, peso da caixa e desconto do rótulo
-- **Listar Produtos**: Visualize todos os produtos cadastrados no sistema
-
-#### Lotes
-- **Cadastrar Lote**: Registre novos lotes associados a um produto
-- **Listar Lotes**: Visualize todos os lotes cadastrados com seus pesos bruto e líquido
-
-## 📊 Estrutura do Banco de Dados
-
-### Tabela: `produto`
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | SERIAL | Identificador único (chave primária) |
-| nome | VARCHAR(100) | Nome do produto |
-| tipo | VARCHAR(30) | Tipo do produto (ex: PI, RÓTULO, SIMPLES) |
-| peso_caixa | NUMERIC(10,2) | Peso unitário da caixa |
-| desconto_rotulo | NUMERIC(10,2) | Desconto/peso do rótulo |
-
-### Tabela: `lote`
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| id | SERIAL | Identificador único (chave primária) |
-| numero_lote | VARCHAR(50) | Número identificador do lote |
-| peso_bruto | NUMERIC(10,2) | Peso bruto do lote |
-| peso_liquido | NUMERIC(10,2) | Peso líquido do lote |
-| id_produto | INT | Referência ao produto (chave estrangeira) |
-
-## 🎨 Personalização
-
-Os estilos CSS podem ser customizados no arquivo:
-```
-assets/css/style.css
+```text
+/home/seu_usuario/public_html
 ```
 
-## 🐛 Troubleshooting
+A URL ficará no formato:
 
-### Erro de conexão com banco de dados
-- Verifique se o MySQL/PostgreSQL está em execução
-- Confirme as credenciais em `Database.php`
-- Verifique se o banco de dados foi criado
+```text
+http://177.44.248.29/seu_usuario/
+```
 
-### Página em branco
-- Ative o display de erros em `Database.php`
-- Verifique os logs do Apache em `xampp/apache/logs/`
+## 🔐 Variáveis de ambiente
 
-## 📝 Notas de Desenvolvimento
+O projeto utiliza `.env` para armazenar:
 
-- O projeto segue o padrão MVC para melhor organização e manutenção
-- Os modelos (Model) contêm apenas os dados
-- Os controladores (Controller) tratam a lógica de negócio
-- Os DAOs (Data Access Objects) gerenciam a persistência de dados
-- As views são responsáveis pela apresentação
+- `DB_DRIVER`, `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`
+- `MOCKAPI_URL`
 
-## 📄 Licença
+## 🌐 Funcionalidades
 
-Este projeto é fornecido como está para fins educacionais.
+- Produtos: cadastro, listagem, edição e exclusão
+- Lotes: cadastro, listagem, edição e exclusão
+- Avisos: cadastro e listagem via MockAPI
+- CEP: preenchimento automático com ViaCEP
 
----
+## 📄 Observação
 
-**Última atualização**: Maio de 2026
+O arquivo `.env` não deve ser enviado ao GitHub.
+
