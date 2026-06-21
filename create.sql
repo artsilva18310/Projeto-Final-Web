@@ -25,4 +25,19 @@ CREATE TABLE aviso (
     mensagem TEXT NOT NULL,
     autor VARCHAR(100) NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+CREATE TABLE funcionario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    cargo VARCHAR(50),
+    setor VARCHAR(50)
+);
+
+CREATE TABLE fornecedor (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    telefone VARCHAR(20),
+    email VARCHAR(100)
 );
