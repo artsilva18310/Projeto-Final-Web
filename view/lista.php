@@ -3,6 +3,12 @@
 require_once __DIR__ . '/../controller/ProdutoController.php';
 
 $controller = new ProdutoController();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['acao']) && $_POST['acao'] == 'excluir') {
+    $controller->excluir();
+    exit;
+}
+
 $produtos = $controller->listar();
 
 ?>
@@ -56,7 +62,8 @@ $produtos = $controller->listar();
                             <td>
                                 <a href="edita_produto.php?id=<?= $produto->getId() ?>">Editar</a>
                                 |
-                                <form method="POST" action="deletar_produto.php" style="display:inline" onsubmit="return confirm('Confirma exclusão do produto?')">
+                                <form method="POST" action="" style="display:inline" onsubmit="return confirm('Confirma exclusão do produto?')">
+                                    <input type="hidden" name="acao" value="excluir">
                                     <input type="hidden" name="id" value="<?= $produto->getId() ?>">
                                     <button type="submit">Excluir</button>
                                 </form>
