@@ -58,9 +58,9 @@ $produtos = $controller->listar();
         <?php endif; ?>
 
         <div class="links-acoes">
-            <a href="cadastra.php">➕ Cadastrar novo produto</a>
-            <a href="lista_lote.php">📦 Ver lotes</a>
-            <a href="../index.php">🏠 Voltar ao início</a>
+            <a href="cadastra.php"> Cadastrar novo produto</a>
+            <a href="lista_lote.php"> Ver lotes</a>
+            <a href="../index.php"> Voltar ao início</a>
         </div>
     </div>
 </body>

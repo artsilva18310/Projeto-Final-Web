@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" id="cep" name="cep" maxlength="9" placeholder="Digite o CEP">
 
             <label>Rua</label>
-            <input type="text" id="rua" name="rua" readonly>
+            <input type="text" id="rua" name="rua">
 
             <label>Bairro</label>
-            <input type="text" id="bairro" name="bairro" readonly>
+            <input type="text" id="bairro" name="bairro">
 
             <label>Cidade</label>
-            <input type="text" id="cidade" name="cidade" readonly>
+            <input type="text" id="cidade" name="cidade">
 
             <button type="submit">Cadastrar</button>
         </form>

@@ -63,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    <div class="links-acoes">
 
     <a class="voltar" href="lista_lote.php">
-        📋 Ver lotes cadastrados
+         Ver lotes cadastrados
     </a>
 
     <a class="voltar" href="../index.php">
-        🏠 Voltar ao início
+         Voltar ao início
     </a>
 
 </div>

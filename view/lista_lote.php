@@ -68,15 +68,15 @@ $lotes = $controller->listar();
         <div class="links-acoes">
 
     <a class="voltar" href="cadastra_lote.php">
-        ➕ Cadastrar novo lote
+         Cadastrar novo lote
     </a>
 
     <a class="voltar" href="lista.php">
-        📦 Ver produtos cadastrados
+         Ver produtos cadastrados
     </a>
 
     <a class="voltar" href="../index.php">
-        🏠 Voltar ao início
+         Voltar ao início
     </a>
 
 </div>
