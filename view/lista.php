@@ -17,6 +17,18 @@ $produtos = $controller->listar();
     <div class="container">
         <h2>Produtos cadastrados</h2>
 
+        <?php if (isset($_GET['erro']) && $_GET['erro'] == 'produto_com_lote'): ?>
+            <p style="color: red; font-weight: bold;">
+                Não é possível excluir este produto, pois existem lotes vinculados a ele.
+            </p>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['msg']) && $_GET['msg'] == 'excluido'): ?>
+            <p style="color: green; font-weight: bold;">
+                Produto excluído com sucesso.
+            </p>
+        <?php endif; ?>
+
         <?php if (count($produtos) > 0): ?>
             <table>
                 <thead>

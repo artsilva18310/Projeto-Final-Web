@@ -99,10 +99,20 @@ class ProdutoDao
         ]);
     }
 
-    public function deletar($id)
-    {
-        $sql = "DELETE FROM $this->tabela WHERE id = ?";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->execute([$id]);
+    public function excluir($id)
+{
+    $sqlVerifica = "SELECT COUNT(*) FROM lote WHERE id_produto = ?";
+    $stmtVerifica = $this->connection->prepare($sqlVerifica);
+    $stmtVerifica->execute([$id]);
+
+    if ($stmtVerifica->fetchColumn() > 0) {
+        return false;
     }
+
+    $sql = "DELETE FROM produto WHERE id = ?";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->execute([$id]);
+
+    return true;
+}
 }

@@ -57,12 +57,15 @@ class ProdutoController
         exit;
     }
 
-    public function deletar()
-    {
-        $dao = new ProdutoDao();
-        $dao->deletar($_POST['id'] ?? null);
+   public function excluir()
+{
+    $id = $_POST['id'];
 
-        header('Location: ../view/lista.php');
-        exit;
+    $dao = new ProdutoDao();
+
+    if ($dao->excluir($id)) {
+        header("Location: ../view/lista.php?msg=excluido");
+    } else {
+        header("Location: ../view/lista.php?erro=produto_com_lote");
     }
 }
