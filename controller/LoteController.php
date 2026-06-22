@@ -1,4 +1,6 @@
 <?php
+// Controller responsável pela lógica dos lotes.
+// Recebe os dados da view e chama o DAO correspondente.
 
 require_once __DIR__ . '/../dao/LoteDao.php';
 // carrega o DAO (que já carrega Database e Model)

@@ -1,4 +1,6 @@
 <?php
+// DAO responsável pelas operações com a tabela funcionario.
+// Implementa os métodos SQL usados pelo controller.
 
 require_once __DIR__ . '/../Database.php';
 require_once __DIR__ . '/../model/Funcionario.php';

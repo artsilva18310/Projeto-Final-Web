@@ -1,4 +1,6 @@
 <?php
+// DAO responsável pelas operações com a tabela lote.
+// Faz a comunicação direta com o banco para manipular os registros.
 
 require_once __DIR__ . '/../Database.php';
 require_once __DIR__ . '/../model/Lote.php';

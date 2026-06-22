@@ -1,4 +1,6 @@
 <?php
+// Controller responsável pela lógica dos fornecedores.
+// Gerencia o fluxo entre a view e o DAO.
 
 require_once __DIR__ . '/../dao/FornecedorDao.php';
 

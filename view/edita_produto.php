@@ -1,4 +1,7 @@
 <?php
+// View para editar um produto já cadastrado.
+// O formulário carrega os dados do item pelo ID e envia as alterações ao controller.
+
 require_once __DIR__ . '/../controller/ProdutoController.php';
 
 $controller = new ProdutoController();

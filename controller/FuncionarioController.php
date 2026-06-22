@@ -1,4 +1,6 @@
 <?php
+// Controller responsável pela lógica dos funcionários.
+// Centraliza as ações de cadastro, leitura, edição e exclusão.
 
 require_once __DIR__ . '/../dao/FuncionarioDao.php';
 

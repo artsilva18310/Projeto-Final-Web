@@ -1,4 +1,7 @@
 <?php
+// View para editar um fornecedor.
+// Busca o item pelo ID e preenche os campos com os dados atuais.
+
 require_once __DIR__ . '/../controller/FornecedorController.php';
 
 $controller = new FornecedorController();

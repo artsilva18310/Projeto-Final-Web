@@ -1,4 +1,7 @@
 <?php
+// View para listar os lotes cadastrados.
+// Exibe os registros do banco e permite editar ou excluir cada item.
+
 // Carrega o Controller para usar na View
 require_once __DIR__ . '/../controller/LoteController.php';
 // Instancia o Controller e chama o método para listar os lotes

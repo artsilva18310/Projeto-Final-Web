@@ -1,4 +1,7 @@
 <?php
+// View para cadastrar um novo lote.
+// Também carrega a lista de produtos para o usuário selecionar o produto relacionado.
+
 // Inclui os arquivos necessários
 require_once __DIR__ . '/../controller/LoteController.php';
 require_once __DIR__ . '/../controller/ProdutoController.php';

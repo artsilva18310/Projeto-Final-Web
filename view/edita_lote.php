@@ -1,4 +1,7 @@
 <?php
+// View para editar um lote existente.
+// Busca o item pelo ID e envia os dados atualizados ao controller.
+
 require_once __DIR__ . '/../controller/LoteController.php';
 
 $controller = new LoteController();

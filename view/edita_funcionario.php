@@ -1,4 +1,7 @@
 <?php
+// View para editar um funcionário.
+// Busca o funcionário pelo ID e preenche o formulário com os dados atuais.
+
 require_once __DIR__ . '/../controller/FuncionarioController.php';
 
 $controller = new FuncionarioController();

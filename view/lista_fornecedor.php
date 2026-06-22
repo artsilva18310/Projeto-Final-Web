@@ -1,4 +1,7 @@
 <?php
+// View para listar os fornecedores cadastrados.
+// Exibe os registros e permite editar ou remover cada fornecedor.
+
 require_once __DIR__ . '/../controller/FornecedorController.php';
 
 $controller = new FornecedorController();

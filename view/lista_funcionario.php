@@ -1,4 +1,7 @@
 <?php
+// View para listar os funcionários cadastrados.
+// Exibe os registros e permite editar ou excluir cada funcionário.
+
 require_once __DIR__ . '/../controller/FuncionarioController.php';
 
 $controller = new FuncionarioController();

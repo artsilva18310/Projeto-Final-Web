@@ -1,4 +1,6 @@
 <?php
+// Controller utilizado para integrar o CRUD parcial de avisos com a MockAPI.
+// Não usa banco local; faz requisições HTTP para a API externa.
 
 require_once __DIR__ . '/../model/Aviso.php';
 

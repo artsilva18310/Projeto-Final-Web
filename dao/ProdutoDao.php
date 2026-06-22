@@ -1,4 +1,6 @@
 <?php
+// DAO responsável pelas operações com a tabela produto.
+// Aqui ficam os comandos SQL para salvar, listar, buscar, atualizar e excluir.
 
 require_once __DIR__ . '/../Database.php';
 require_once __DIR__ . '/../model/Produto.php';

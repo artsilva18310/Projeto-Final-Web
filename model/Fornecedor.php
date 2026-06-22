@@ -1,4 +1,6 @@
 <?php
+// Model da entidade Fornecedor.
+// Define os campos usados no cadastro e na listagem.
 
 class Fornecedor
 {

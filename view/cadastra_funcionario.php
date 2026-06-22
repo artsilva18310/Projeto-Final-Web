@@ -1,4 +1,7 @@
 <?php
+// View para cadastrar um novo funcionário.
+// Quando o formulário é enviado, o controller salva os dados no banco.
+
 require_once __DIR__ . '/../controller/FuncionarioController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

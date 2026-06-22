@@ -1,3 +1,6 @@
+-- Script SQL com a estrutura inicial do projeto.
+-- Aqui ficam as tabelas usadas pelos CRUDs locais do sistema.
+
 CREATE TABLE produto (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,

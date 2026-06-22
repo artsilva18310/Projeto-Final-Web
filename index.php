@@ -5,6 +5,11 @@
     <title>Sistema de Inventário</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<!--
+    Página inicial do sistema.
+    Aqui ficam os links para acessar os CRUDs de produtos, lotes, funcionários,
+    fornecedores e avisos.
+-->
 <body>
     <div class="container">
         <h1>Sistema de Inventário</h1>

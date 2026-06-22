@@ -1,4 +1,6 @@
 <?php
+// View para listar os produtos cadastrados.
+// Também recebe a ação de exclusão quando o usuário confirma a remoção.
 
 require_once __DIR__ . '/../controller/ProdutoController.php';
 

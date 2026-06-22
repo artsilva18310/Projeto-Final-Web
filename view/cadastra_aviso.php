@@ -1,4 +1,7 @@
 <?php
+// View para cadastrar um aviso via MockAPI.
+// O formulário envia os dados para a API configurada no ambiente.
+
 require_once __DIR__ . '/../Database.php';
 new Database();
 

@@ -1,4 +1,6 @@
 <?php
+// Model da entidade Lote.
+// Guarda os atributos do lote e expõe métodos para acesso aos dados.
 
 // Model: representa a entidade Lote — apenas dados
 class Lote

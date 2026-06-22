@@ -1,4 +1,6 @@
 <?php
+// View para cadastrar um novo produto.
+// Ao enviar o formulário, o controller salva os dados no banco.
 
 require_once __DIR__ . '/../controller/ProdutoController.php';
 

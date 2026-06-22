@@ -1,4 +1,6 @@
 <?php
+// DAO responsável pelas operações com a tabela fornecedor.
+// Contém os comandos de inserção, leitura, atualização e exclusão.
 
 require_once __DIR__ . '/../Database.php';
 require_once __DIR__ . '/../model/Fornecedor.php';

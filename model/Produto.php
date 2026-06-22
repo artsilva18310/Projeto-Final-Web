@@ -1,4 +1,6 @@
 <?php
+// Model da entidade Produto.
+// Representa os dados do produto e fornece getters para leitura.
 
 class Produto
 {

@@ -1,4 +1,7 @@
 <?php
+// View para cadastrar um novo fornecedor.
+// Ao enviar o formulário, o controller salva os dados no banco.
+
 require_once __DIR__ . '/../controller/FornecedorController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

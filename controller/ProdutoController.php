@@ -1,4 +1,6 @@
 <?php
+// Controller responsável por receber as ações relacionadas aos produtos.
+// Faz a ligação entre a view e o DAO, processando salvar, listar, editar e excluir.
 
 require_once __DIR__ . '/../dao/ProdutoDao.php';
 

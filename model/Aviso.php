@@ -1,4 +1,6 @@
 <?php
+// Model da entidade Aviso.
+// Serve como estrutura para os dados recebidos da MockAPI.
 
 class Aviso
 {

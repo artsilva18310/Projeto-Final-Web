@@ -1,4 +1,6 @@
 <?php
+// Model da entidade Funcionario.
+// Armazena os dados do funcionário usados pelo controller e pelo DAO.
 
 class Funcionario
 {

@@ -1,4 +1,7 @@
 <?php
+// View para listar os avisos vindos da MockAPI.
+// O conteúdo é carregado dinamicamente pela página usando JavaScript.
+
 require_once __DIR__ . '/../Database.php';
 new Database();
 

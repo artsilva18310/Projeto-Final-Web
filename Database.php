@@ -1,4 +1,6 @@
 <?php
+// Arquivo principal de conexão com o banco.
+// Carrega as variáveis do arquivo .env e cria a conexão PDO usada por todos os DAOs.
 
 class Database
 {
