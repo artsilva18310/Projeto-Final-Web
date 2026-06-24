@@ -49,8 +49,8 @@ Projeto-Final-Web/
 ## 🛠️ Requisitos
 
 - PHP 8+
-- Postgres
-- XAMPP ou servidor Apache com PHP e Postgres
+- PostgreSQL
+- XAMPP ou servidor Apache com PHP e PostgreSQL
 - Navegador moderno
 
 ## 📦 Instalação
