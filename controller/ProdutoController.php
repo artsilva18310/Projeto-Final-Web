@@ -6,12 +6,14 @@ require_once __DIR__ . '/../dao/ProdutoDao.php';
 
 class ProdutoController
 {
+    // Retorna todos os produtos cadastrados
     public function listar()
     {
         $dao = new ProdutoDao();
         return $dao->listar();
     }
-
+}
+// Salva um novo produto no banco de dados
     public function salvar()
     {
         $produto = new Produto(
@@ -24,20 +26,20 @@ class ProdutoController
             $_POST['bairro'] ?? '',
             $_POST['cidade'] ?? ''
         );
-
+// Cria uma instância do DAO e chama o método salvar
         $dao = new ProdutoDao();
         $dao->salvar($produto);
-
+// Redireciona para a lista de produtos após salvar
         header('Location: ../view/lista.php');
         exit;
     }
-
+// Busca um produto pelo id, usado para edição
     public function buscarPorId($id)
     {
         $dao = new ProdutoDao();
         return $dao->buscarPorId($id);
     }
-
+// Atualiza um produto existente no banco de dados
     public function atualizar()
     {
         $produto = new Produto(
@@ -59,6 +61,7 @@ class ProdutoController
         exit;
     }
 
+// Exclui um produto pelo id, mas apenas se não houver lotes associados
    public function excluir()
 {
     $id = $_POST['id'];

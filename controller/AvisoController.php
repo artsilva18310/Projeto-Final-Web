@@ -5,13 +5,15 @@
 require_once __DIR__ . '/../model/Aviso.php';
 
 class AvisoController
+
+
 {
+    // Retorna a URL base da MockAPI a partir da variável de ambiente
     private function getBaseUrl()
     {
         return rtrim(getenv('MOCKAPI_URL') ?: '', '/');
     }
-
-    private function request($method, $url, $data = null)
+// private function request($method, $url, $data = null)
     {
         $ch = curl_init($url);
 
@@ -36,7 +38,7 @@ class AvisoController
 
         return json_decode($response, true);
     }
-
+// Retorna todos os avisos cadastrados na MockAPI
     public function listar()
     {
         $baseUrl = $this->getBaseUrl();
@@ -62,7 +64,7 @@ class AvisoController
 
         return $avisos;
     }
-
+// Salva um novo aviso na MockAPI
     public function salvar()
     {
         $baseUrl = $this->getBaseUrl();

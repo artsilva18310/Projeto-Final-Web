@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             const cidadeInput = document.getElementById('cidade');
             const cepValido = document.getElementById('cep_valido');
 
+            // Função para buscar endereço pelo CEP usando a API ViaCEP
             cepInput.addEventListener('blur', async function () {
                 const cep = this.value.replace(/\D/g, '');
 
@@ -96,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     alert('Não foi possível buscar o CEP.');
                 }
             });
-
+// Validação do formulário antes de enviar
             form.addEventListener('submit', function (event) {
                 if (cepValido.value !== '1') {
                     event.preventDefault();

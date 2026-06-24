@@ -4,18 +4,18 @@
 
 require_once __DIR__ . '/../Database.php';
 require_once __DIR__ . '/../model/Produto.php';
-
+// DAO (Data Access Object): responsável pelas operações no banco
 class ProdutoDao
 {
     private $tabela = 'produto';
     private $connection;
-
+// Construtor: cria conexão com o banco de dados
     public function __construct()
     {
         $db = new Database();
         $this->connection = $db->connection;
     }
-
+// Salva um novo produto no banco
     public function salvar(Produto $produto)
     {
         $sql = "INSERT INTO $this->tabela
@@ -34,7 +34,7 @@ class ProdutoDao
             $produto->getCidade()
         ]);
     }
-
+// Retorna todos os produtos cadastrados
     public function listar()
     {
         $sql = "SELECT * FROM $this->tabela";
@@ -59,7 +59,7 @@ class ProdutoDao
 
         return $produtos;
     }
-
+// Busca um produto pelo id
     public function buscarPorId($id)
     {
         $sql = "SELECT * FROM $this->tabela WHERE id = ?";
@@ -83,7 +83,7 @@ class ProdutoDao
             $row['id']
         );
     }
-
+// Atualiza um produto existente
     public function atualizar(Produto $produto)
     {
         $sql = "UPDATE $this->tabela SET nome = ?, tipo = ?, peso_caixa = ?, desconto_rotulo = ?, cep = ?, rua = ?, bairro = ?, cidade = ? WHERE id = ?";
@@ -100,17 +100,17 @@ class ProdutoDao
             $produto->getId()
         ]);
     }
-
+// Exclui um produto pelo id, mas apenas se não houver lotes associados
     public function excluir($id)
 {
     $sqlVerifica = "SELECT COUNT(*) FROM lote WHERE id_produto = ?";
     $stmtVerifica = $this->connection->prepare($sqlVerifica);
     $stmtVerifica->execute([$id]);
-
+// Se houver lotes associados, não permite a exclusão
     if ($stmtVerifica->fetchColumn() > 0) {
         return false;
     }
-
+// Se não houver lotes associados, exclui o produto
     $sql = "DELETE FROM produto WHERE id = ?";
     $stmt = $this->connection->prepare($sql);
     $stmt->execute([$id]);
