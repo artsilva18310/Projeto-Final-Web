@@ -100,6 +100,7 @@ class ProdutoDao
             $produto->getId()
         ]);
     }
+    
 // Exclui um produto pelo id, mas apenas se não houver lotes associados
     public function excluir($id)
 {

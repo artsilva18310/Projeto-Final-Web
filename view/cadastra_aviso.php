@@ -1,21 +1,25 @@
 <?php
-// View para cadastrar um aviso via MockAPI.
-// O formulário envia os dados para a API configurada no ambiente.
+// Cadastro de aviso via MockAPI usando JavaScript fetch.
 
 require_once __DIR__ . '/../Database.php';
 new Database();
 
 $apiUrl = getenv('MOCKAPI_URL') ?: '';
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Aviso</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
+
     <div class="container">
+
         <h2>Cadastrar aviso</h2>
 
         <label>Título</label>
@@ -35,14 +39,17 @@ $apiUrl = getenv('MOCKAPI_URL') ?: '';
             <a class="voltar" href="lista_aviso.php">Ver avisos</a>
             <a class="voltar" href="../index.php">Voltar ao início</a>
         </div>
+
     </div>
 
     <script>
         const apiUrl = <?= json_encode($apiUrl) ?>;
+
         const botao = document.getElementById('btn');
         const resposta = document.getElementById('resposta');
 
         botao.addEventListener('click', async function () {
+
             const titulo = document.getElementById('titulo').value.trim();
             const mensagem = document.getElementById('mensagem').value.trim();
             const autor = document.getElementById('autor').value.trim();
@@ -57,28 +64,31 @@ $apiUrl = getenv('MOCKAPI_URL') ?: '';
                 return;
             }
 
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ titulo, mensagem, autor })
-                });
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    titulo: titulo,
+                    mensagem: mensagem,
+                    autor: autor
+                })
+            });
 
-                const data = await response.json();
+            const data = await response.json();
 
-                if (!response.ok) {
-                    resposta.textContent = JSON.stringify({
-                        status: response.status,
-                        data
-                    }, null, 2);
-                    return;
-                }
+            resposta.textContent = JSON.stringify(data, null, 2);
 
-                resposta.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                resposta.textContent = 'Não foi possível enviar o aviso. Verifique a URL da API.';
+            if (response.ok) {
+                document.getElementById('titulo').value = '';
+                document.getElementById('mensagem').value = '';
+                document.getElementById('autor').value = '';
             }
+
         });
     </script>
+
 </body>
+
 </html>

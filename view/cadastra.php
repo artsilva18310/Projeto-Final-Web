@@ -55,11 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a class="voltar" href="../index.php">Voltar ao início</a>
         </div>
     </div>
-
+    
+    // Script para buscar endereço pelo CEP usando a API ViaCEP ta ai pq ele tem a api de cep e ele vai buscar o endereço automaticamente
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('form');
-
+    
             const cepInput = document.getElementById('cep');
             const ruaInput = document.getElementById('rua');
             const bairroInput = document.getElementById('bairro');
