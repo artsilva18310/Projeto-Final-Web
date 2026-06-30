@@ -2,8 +2,9 @@
 // View para cadastrar um novo produto.
 // Ao enviar o formulário, o controller salva os dados no banco.
 
+// Inclui os arquivos necessários
 require_once __DIR__ . '/../controller/ProdutoController.php';
-
+//  Verifica se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new ProdutoController();
     $controller->salvar();
