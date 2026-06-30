@@ -1,16 +1,10 @@
 <?php
 // View para listar os produtos cadastrados.
-// Também recebe a ação de exclusão quando o usuário confirma a remoção.
+// Exibe os registros do banco e permite editar ou excluir cada item.
 
 require_once __DIR__ . '/../controller/ProdutoController.php';
 
 $controller = new ProdutoController();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['acao']) && $_POST['acao'] == 'excluir') {
-    $controller->excluir();
-    exit;
-}
-
 $produtos = $controller->listar();
 
 ?>
@@ -51,6 +45,7 @@ $produtos = $controller->listar();
                         <th>Ações</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php foreach ($produtos as $produto): ?>
                         <tr>
@@ -64,9 +59,14 @@ $produtos = $controller->listar();
                             <td>
                                 <a href="edita_produto.php?id=<?= $produto->getId() ?>">Editar</a>
                                 |
-                                <form method="POST" action="" style="display:inline" onsubmit="return confirm('Confirma exclusão do produto?')">
-                                    <input type="hidden" name="acao" value="excluir">
+
+                                <form method="POST"
+                                      action="deletar_produto.php"
+                                      style="display:inline"
+                                      onsubmit="return confirm('Confirma exclusão do produto?')">
+
                                     <input type="hidden" name="id" value="<?= $produto->getId() ?>">
+
                                     <button type="submit">Excluir</button>
                                 </form>
                             </td>
@@ -74,14 +74,15 @@ $produtos = $controller->listar();
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
         <?php else: ?>
             <p>Nenhum produto cadastrado.</p>
         <?php endif; ?>
 
         <div class="links-acoes">
-            <a href="cadastra.php"> Cadastrar novo produto</a>
-            <a href="lista_lote.php"> Ver lotes</a>
-            <a href="../index.php"> Voltar ao início</a>
+            <a href="cadastra.php">Cadastrar novo produto</a>
+            <a href="lista_lote.php">Ver lotes</a>
+            <a href="../index.php">Voltar ao início</a>
         </div>
     </div>
 </body>
